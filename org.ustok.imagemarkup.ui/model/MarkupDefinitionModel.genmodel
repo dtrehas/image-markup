@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="© 2012 www.ustok.org"
+    modelDirectory="/org.ustok.imagemarkup.ui/src_generated" modelPluginID="org.ustok.imagemarkup.ui"
+    modelName="MarkupDefinitionModel" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="6.0" copyrightFields="false">
+  <foreignModel>MarkupDefinitionModel.ecore</foreignModel>
+  <genPackages prefix="Markupdefinition" basePackage="org.ustok.imagemarkup.ui.model"
+      disposableProviderFactory="true" ecorePackage="MarkupDefinitionModel.ecore#/">
+    <genClasses ecoreClass="MarkupDefinitionModel.ecore#//MarkupDefinition"/>
+    <genClasses ecoreClass="MarkupDefinitionModel.ecore#//MarkupEntry">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference MarkupDefinitionModel.ecore#//MarkupEntry/markings"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MarkupDefinitionModel.ecore#//MarkupEntry/text"/>
+    </genClasses>
+    <genClasses ecoreClass="MarkupDefinitionModel.ecore#//Rectangle">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MarkupDefinitionModel.ecore#//Rectangle/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MarkupDefinitionModel.ecore#//Rectangle/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MarkupDefinitionModel.ecore#//Rectangle/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute MarkupDefinitionModel.ecore#//Rectangle/height"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

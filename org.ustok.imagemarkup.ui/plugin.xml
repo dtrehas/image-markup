@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ © 2012 www.ustok.org
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="ustok.org/imagemarkup/ui/markupdefinition"
+            class="org.ustok.imagemarkup.ui.model.markupdefinition.MarkupdefinitionPackage"
+            genModel="model/MarkupDefinitionModel.genmodel"/>
+   </extension>
+
+</plugin>
