@@ -58,8 +58,9 @@ public class ImageMarkup {
 	 * @param pText
 	 *            the description text for the marking area. May be
 	 *            <code>null</code>.
+	 * @return given image.
 	 */
-	public synchronized void applyMarkup(Image pImage, int pX1, int pY1,
+	public synchronized Image applyMarkup(Image pImage, int pX1, int pY1,
 			int pX2, int pY2, String pText) {
 		MarkupDefinition definition = MarkupdefinitionFactory.eINSTANCE
 				.createMarkupDefinition();
@@ -78,7 +79,7 @@ public class ImageMarkup {
 
 		entry.setText(pText);
 
-		applyMarkup(pImage, definition);
+		return applyMarkup(pImage, definition);
 	}
 
 	/**
