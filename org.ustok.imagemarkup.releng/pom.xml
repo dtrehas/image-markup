@@ -11,6 +11,7 @@
         <modules>
                 <module>../org.ustok.imagemarkup.ui</module>
                 <module>../org.ustok.imagemarkup.ui.test</module>
+                <module>../org.ustok.imagemarkup.feature</module>
         </modules>
 
         <repositories>
