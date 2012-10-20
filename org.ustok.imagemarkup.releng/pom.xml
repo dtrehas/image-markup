@@ -10,6 +10,7 @@
 
         <modules>
                 <module>../org.ustok.imagemarkup.ui</module>
+                <module>../org.ustok.imagemarkup.ui.test</module>
         </modules>
 
         <repositories>
