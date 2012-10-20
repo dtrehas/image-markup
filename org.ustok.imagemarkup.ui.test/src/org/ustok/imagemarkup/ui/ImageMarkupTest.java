@@ -62,7 +62,7 @@ public class ImageMarkupTest {
 
 	@Test
 	public void testApply() throws IOException {
-		Display.getDefault().syncExec(new Runnable() {
+		Display.getDefault().asyncExec(new Runnable() {
 
 			@Override
 			public void run() {
