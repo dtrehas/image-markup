@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.ustok.imagemarkup.feature_1.0.0.qualifier.jar" id="org.ustok.imagemarkup.feature" version="1.1.0.qualifier">
+   <feature url="features/org.ustok.imagemarkup.feature_1.0.0.qualifier.jar" id="org.ustok.imagemarkup.feature" version="1.0.0.qualifier">
       <category name="image-markup"/>
    </feature>
    <category-def name="image-markup" label="ImageMarkup">
