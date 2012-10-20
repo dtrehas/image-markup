@@ -8,19 +8,38 @@
       <details key="documentation" value="A complete markup definition to be used to add markups to an image."/>
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entries" upperBound="-1"
-        eType="#//MarkupEntry" containment="true">
+        eType="#//MarkupEntry" containment="true" eOpposite="#//MarkupEntry/parent">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="The markup entries that belong to the definition."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ignoreDescriptions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A flag indicating whether to ignore the markup entry descriptions. If TRUE, the descriptions will be skipped and not drawn onto the image."/>
       </eAnnotations>
     </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MarkupEntry">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-      <details key="documentation" value="A single markup entry with a number of markup areas (markings) and an optional description text to be displayed."/>
+      <details key="documentation" value="A single markup entry with a markup area (marking) and an optional description text to be displayed."/>
     </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="markings" upperBound="-1"
-        eType="#//Rectangle" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="marking" eType="#//Rectangle"
+        containment="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The marking area."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The description text to draw for the marking."/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parent" eType="#//MarkupDefinition"
+        eOpposite="#//MarkupDefinition/entries">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The parent definition."/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Rectangle">
     <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

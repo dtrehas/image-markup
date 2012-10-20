@@ -1,10 +1,11 @@
 /**
- * © 2012 www.ustok.org
+ * Â© 2012 www.ustok.org
  */
 package org.ustok.imagemarkup.ui.model.markupdefinition.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -12,9 +13,10 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.EObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.ustok.imagemarkup.ui.model.markupdefinition.MarkupDefinition;
@@ -29,6 +31,7 @@ import org.ustok.imagemarkup.ui.model.markupdefinition.MarkupdefinitionPackage;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.ustok.imagemarkup.ui.model.markupdefinition.impl.MarkupDefinitionImpl#getEntries <em>Entries</em>}</li>
+ *   <li>{@link org.ustok.imagemarkup.ui.model.markupdefinition.impl.MarkupDefinitionImpl#isIgnoreDescriptions <em>Ignore Descriptions</em>}</li>
  * </ul>
  * </p>
  *
@@ -44,6 +47,26 @@ public class MarkupDefinitionImpl extends EObjectImpl implements MarkupDefinitio
 	 * @ordered
 	 */
 	protected EList<MarkupEntry> entries;
+
+	/**
+	 * The default value of the '{@link #isIgnoreDescriptions() <em>Ignore Descriptions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIgnoreDescriptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final boolean IGNORE_DESCRIPTIONS_EDEFAULT = false;
+
+	/**
+	 * The cached value of the '{@link #isIgnoreDescriptions() <em>Ignore Descriptions</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #isIgnoreDescriptions()
+	 * @generated
+	 * @ordered
+	 */
+	protected boolean ignoreDescriptions = IGNORE_DESCRIPTIONS_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -71,9 +94,45 @@ public class MarkupDefinitionImpl extends EObjectImpl implements MarkupDefinitio
 	 */
 	public EList<MarkupEntry> getEntries() {
 		if (entries == null) {
-			entries = new EObjectContainmentEList<MarkupEntry>(MarkupEntry.class, this, MarkupdefinitionPackage.MARKUP_DEFINITION__ENTRIES);
+			entries = new EObjectContainmentWithInverseEList<MarkupEntry>(MarkupEntry.class, this, MarkupdefinitionPackage.MARKUP_DEFINITION__ENTRIES, MarkupdefinitionPackage.MARKUP_ENTRY__PARENT);
 		}
 		return entries;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean isIgnoreDescriptions() {
+		return ignoreDescriptions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setIgnoreDescriptions(boolean newIgnoreDescriptions) {
+		boolean oldIgnoreDescriptions = ignoreDescriptions;
+		ignoreDescriptions = newIgnoreDescriptions;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, MarkupdefinitionPackage.MARKUP_DEFINITION__IGNORE_DESCRIPTIONS, oldIgnoreDescriptions, ignoreDescriptions));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case MarkupdefinitionPackage.MARKUP_DEFINITION__ENTRIES:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getEntries()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -100,6 +159,8 @@ public class MarkupDefinitionImpl extends EObjectImpl implements MarkupDefinitio
 		switch (featureID) {
 			case MarkupdefinitionPackage.MARKUP_DEFINITION__ENTRIES:
 				return getEntries();
+			case MarkupdefinitionPackage.MARKUP_DEFINITION__IGNORE_DESCRIPTIONS:
+				return isIgnoreDescriptions();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,6 +178,9 @@ public class MarkupDefinitionImpl extends EObjectImpl implements MarkupDefinitio
 				getEntries().clear();
 				getEntries().addAll((Collection<? extends MarkupEntry>)newValue);
 				return;
+			case MarkupdefinitionPackage.MARKUP_DEFINITION__IGNORE_DESCRIPTIONS:
+				setIgnoreDescriptions((Boolean)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -132,6 +196,9 @@ public class MarkupDefinitionImpl extends EObjectImpl implements MarkupDefinitio
 			case MarkupdefinitionPackage.MARKUP_DEFINITION__ENTRIES:
 				getEntries().clear();
 				return;
+			case MarkupdefinitionPackage.MARKUP_DEFINITION__IGNORE_DESCRIPTIONS:
+				setIgnoreDescriptions(IGNORE_DESCRIPTIONS_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -146,8 +213,26 @@ public class MarkupDefinitionImpl extends EObjectImpl implements MarkupDefinitio
 		switch (featureID) {
 			case MarkupdefinitionPackage.MARKUP_DEFINITION__ENTRIES:
 				return entries != null && !entries.isEmpty();
+			case MarkupdefinitionPackage.MARKUP_DEFINITION__IGNORE_DESCRIPTIONS:
+				return ignoreDescriptions != IGNORE_DESCRIPTIONS_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (ignoreDescriptions: ");
+		result.append(ignoreDescriptions);
+		result.append(')');
+		return result.toString();
 	}
 
 } //MarkupDefinitionImpl

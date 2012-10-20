@@ -1,5 +1,5 @@
 /**
- * © 2012 www.ustok.org
+ * Â© 2012 www.ustok.org
  */
 package org.ustok.imagemarkup.ui.model.markupdefinition;
 

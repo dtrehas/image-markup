@@ -1,5 +1,5 @@
 /**
- * © 2012 www.ustok.org
+ * Â© 2012 www.ustok.org
  */
 package org.ustok.imagemarkup.ui.model.markupdefinition;
 
@@ -76,13 +76,22 @@ public interface MarkupdefinitionPackage extends EPackage {
 	int MARKUP_DEFINITION__ENTRIES = 0;
 
 	/**
+	 * The feature id for the '<em><b>Ignore Descriptions</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKUP_DEFINITION__IGNORE_DESCRIPTIONS = 1;
+
+	/**
 	 * The number of structural features of the '<em>Markup Definition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKUP_DEFINITION_FEATURE_COUNT = 1;
+	int MARKUP_DEFINITION_FEATURE_COUNT = 2;
 
 	/**
 	 * The meta object id for the '{@link org.ustok.imagemarkup.ui.model.markupdefinition.impl.MarkupEntryImpl <em>Markup Entry</em>}' class.
@@ -95,13 +104,13 @@ public interface MarkupdefinitionPackage extends EPackage {
 	int MARKUP_ENTRY = 1;
 
 	/**
-	 * The feature id for the '<em><b>Markings</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Marking</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKUP_ENTRY__MARKINGS = 0;
+	int MARKUP_ENTRY__MARKING = 0;
 
 	/**
 	 * The feature id for the '<em><b>Text</b></em>' attribute.
@@ -113,13 +122,22 @@ public interface MarkupdefinitionPackage extends EPackage {
 	int MARKUP_ENTRY__TEXT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Parent</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MARKUP_ENTRY__PARENT = 2;
+
+	/**
 	 * The number of structural features of the '<em>Markup Entry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MARKUP_ENTRY_FEATURE_COUNT = 2;
+	int MARKUP_ENTRY_FEATURE_COUNT = 3;
 
 	/**
 	 * The meta object id for the '{@link org.ustok.imagemarkup.ui.model.markupdefinition.impl.RectangleImpl <em>Rectangle</em>}' class.
@@ -199,6 +217,17 @@ public interface MarkupdefinitionPackage extends EPackage {
 	EReference getMarkupDefinition_Entries();
 
 	/**
+	 * Returns the meta object for the attribute '{@link org.ustok.imagemarkup.ui.model.markupdefinition.MarkupDefinition#isIgnoreDescriptions <em>Ignore Descriptions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ignore Descriptions</em>'.
+	 * @see org.ustok.imagemarkup.ui.model.markupdefinition.MarkupDefinition#isIgnoreDescriptions()
+	 * @see #getMarkupDefinition()
+	 * @generated
+	 */
+	EAttribute getMarkupDefinition_IgnoreDescriptions();
+
+	/**
 	 * Returns the meta object for class '{@link org.ustok.imagemarkup.ui.model.markupdefinition.MarkupEntry <em>Markup Entry</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -209,15 +238,15 @@ public interface MarkupdefinitionPackage extends EPackage {
 	EClass getMarkupEntry();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link org.ustok.imagemarkup.ui.model.markupdefinition.MarkupEntry#getMarkings <em>Markings</em>}'.
+	 * Returns the meta object for the containment reference '{@link org.ustok.imagemarkup.ui.model.markupdefinition.MarkupEntry#getMarking <em>Marking</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Markings</em>'.
-	 * @see org.ustok.imagemarkup.ui.model.markupdefinition.MarkupEntry#getMarkings()
+	 * @return the meta object for the containment reference '<em>Marking</em>'.
+	 * @see org.ustok.imagemarkup.ui.model.markupdefinition.MarkupEntry#getMarking()
 	 * @see #getMarkupEntry()
 	 * @generated
 	 */
-	EReference getMarkupEntry_Markings();
+	EReference getMarkupEntry_Marking();
 
 	/**
 	 * Returns the meta object for the attribute '{@link org.ustok.imagemarkup.ui.model.markupdefinition.MarkupEntry#getText <em>Text</em>}'.
@@ -229,6 +258,17 @@ public interface MarkupdefinitionPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMarkupEntry_Text();
+
+	/**
+	 * Returns the meta object for the container reference '{@link org.ustok.imagemarkup.ui.model.markupdefinition.MarkupEntry#getParent <em>Parent</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent</em>'.
+	 * @see org.ustok.imagemarkup.ui.model.markupdefinition.MarkupEntry#getParent()
+	 * @see #getMarkupEntry()
+	 * @generated
+	 */
+	EReference getMarkupEntry_Parent();
 
 	/**
 	 * Returns the meta object for class '{@link org.ustok.imagemarkup.ui.model.markupdefinition.Rectangle <em>Rectangle</em>}'.
@@ -325,6 +365,14 @@ public interface MarkupdefinitionPackage extends EPackage {
 		EReference MARKUP_DEFINITION__ENTRIES = eINSTANCE.getMarkupDefinition_Entries();
 
 		/**
+		 * The meta object literal for the '<em><b>Ignore Descriptions</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute MARKUP_DEFINITION__IGNORE_DESCRIPTIONS = eINSTANCE.getMarkupDefinition_IgnoreDescriptions();
+
+		/**
 		 * The meta object literal for the '{@link org.ustok.imagemarkup.ui.model.markupdefinition.impl.MarkupEntryImpl <em>Markup Entry</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -335,12 +383,12 @@ public interface MarkupdefinitionPackage extends EPackage {
 		EClass MARKUP_ENTRY = eINSTANCE.getMarkupEntry();
 
 		/**
-		 * The meta object literal for the '<em><b>Markings</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Marking</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MARKUP_ENTRY__MARKINGS = eINSTANCE.getMarkupEntry_Markings();
+		EReference MARKUP_ENTRY__MARKING = eINSTANCE.getMarkupEntry_Marking();
 
 		/**
 		 * The meta object literal for the '<em><b>Text</b></em>' attribute feature.
@@ -349,6 +397,14 @@ public interface MarkupdefinitionPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MARKUP_ENTRY__TEXT = eINSTANCE.getMarkupEntry_Text();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference MARKUP_ENTRY__PARENT = eINSTANCE.getMarkupEntry_Parent();
 
 		/**
 		 * The meta object literal for the '{@link org.ustok.imagemarkup.ui.model.markupdefinition.impl.RectangleImpl <em>Rectangle</em>}' class.

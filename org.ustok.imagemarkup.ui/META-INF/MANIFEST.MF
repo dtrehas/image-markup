@@ -1,11 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: %pluginName
+Bundle-Name: Image Markup UI
 Bundle-SymbolicName: org.ustok.imagemarkup.ui;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Vendor: %providerName
-Bundle-Localization: plugin
+Bundle-Vendor: www.ustok.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.ustok.imagemarkup.ui,
  org.ustok.imagemarkup.ui.model.markupdefinition,

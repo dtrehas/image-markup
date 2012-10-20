@@ -1,5 +1,5 @@
 /**
- * © 2012 www.ustok.org
+ * Â© 2012 www.ustok.org
  */
 package org.ustok.imagemarkup.ui.model.markupdefinition.impl;
 
@@ -128,6 +128,15 @@ public class MarkupdefinitionPackageImpl extends EPackageImpl implements Markupd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getMarkupDefinition_IgnoreDescriptions() {
+		return (EAttribute)markupDefinitionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getMarkupEntry() {
 		return markupEntryEClass;
 	}
@@ -137,7 +146,7 @@ public class MarkupdefinitionPackageImpl extends EPackageImpl implements Markupd
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMarkupEntry_Markings() {
+	public EReference getMarkupEntry_Marking() {
 		return (EReference)markupEntryEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -148,6 +157,15 @@ public class MarkupdefinitionPackageImpl extends EPackageImpl implements Markupd
 	 */
 	public EAttribute getMarkupEntry_Text() {
 		return (EAttribute)markupEntryEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getMarkupEntry_Parent() {
+		return (EReference)markupEntryEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -225,10 +243,12 @@ public class MarkupdefinitionPackageImpl extends EPackageImpl implements Markupd
 		// Create classes and their features
 		markupDefinitionEClass = createEClass(MARKUP_DEFINITION);
 		createEReference(markupDefinitionEClass, MARKUP_DEFINITION__ENTRIES);
+		createEAttribute(markupDefinitionEClass, MARKUP_DEFINITION__IGNORE_DESCRIPTIONS);
 
 		markupEntryEClass = createEClass(MARKUP_ENTRY);
-		createEReference(markupEntryEClass, MARKUP_ENTRY__MARKINGS);
+		createEReference(markupEntryEClass, MARKUP_ENTRY__MARKING);
 		createEAttribute(markupEntryEClass, MARKUP_ENTRY__TEXT);
+		createEReference(markupEntryEClass, MARKUP_ENTRY__PARENT);
 
 		rectangleEClass = createEClass(RECTANGLE);
 		createEAttribute(rectangleEClass, RECTANGLE__X);
@@ -268,11 +288,13 @@ public class MarkupdefinitionPackageImpl extends EPackageImpl implements Markupd
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(markupDefinitionEClass, MarkupDefinition.class, "MarkupDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMarkupDefinition_Entries(), this.getMarkupEntry(), null, "entries", null, 0, -1, MarkupDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMarkupDefinition_Entries(), this.getMarkupEntry(), this.getMarkupEntry_Parent(), "entries", null, 0, -1, MarkupDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMarkupDefinition_IgnoreDescriptions(), ecorePackage.getEBoolean(), "ignoreDescriptions", null, 0, 1, MarkupDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(markupEntryEClass, MarkupEntry.class, "MarkupEntry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMarkupEntry_Markings(), this.getRectangle(), null, "markings", null, 0, -1, MarkupEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMarkupEntry_Marking(), this.getRectangle(), null, "marking", null, 0, 1, MarkupEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMarkupEntry_Text(), ecorePackage.getEString(), "text", null, 0, 1, MarkupEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMarkupEntry_Parent(), this.getMarkupDefinition(), this.getMarkupDefinition_Entries(), "parent", null, 0, 1, MarkupEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(rectangleEClass, Rectangle.class, "Rectangle", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getRectangle_X(), ecorePackage.getEInt(), "x", null, 0, 1, Rectangle.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
