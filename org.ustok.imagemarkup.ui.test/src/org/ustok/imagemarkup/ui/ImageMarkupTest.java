@@ -28,6 +28,7 @@ import org.eclipse.swt.graphics.ImageLoader;
 import org.eclipse.swt.graphics.PaletteData;
 import org.eclipse.swt.graphics.RGB;
 import org.eclipse.swt.widgets.Display;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.ustok.imagemarkup.ui.model.markupdefinition.MarkupDefinition;
 import org.ustok.imagemarkup.ui.renderer.DefaultMarkupRenderer;
@@ -41,7 +42,7 @@ import org.ustok.imagemarkup.ui.renderer.DefaultMarkupRenderer;
 public class ImageMarkupTest {
 
 	/** debug option */
-	private static final boolean DEBUG = true;
+	private static final boolean DEBUG = false;
 
 	@Test
 	public void testConstructor() {
@@ -61,8 +62,9 @@ public class ImageMarkupTest {
 	}
 
 	@Test
+	@Ignore("Doesn't work with tycho on console, only out of Eclipse")
 	public void testApply() throws IOException {
-		Display.getDefault().asyncExec(new Runnable() {
+		Display.getDefault().syncExec(new Runnable() {
 
 			@Override
 			public void run() {
