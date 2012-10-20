@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Image Markup UI Test
+Bundle-SymbolicName: org.ustok.imagemarkup.ui.test
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: www.ustok.org
+Fragment-Host: org.ustok.imagemarkup.ui;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Require-Bundle: org.junit;bundle-version="4.8.2"
