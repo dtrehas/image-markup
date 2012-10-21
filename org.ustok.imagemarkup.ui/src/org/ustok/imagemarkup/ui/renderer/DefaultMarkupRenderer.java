@@ -14,7 +14,7 @@ import org.eclipse.swt.widgets.Display;
 import org.ustok.imagemarkup.ui.MarkupRenderer;
 import org.ustok.imagemarkup.ui.model.markupdefinition.MarkupDefinition;
 import org.ustok.imagemarkup.ui.model.markupdefinition.MarkupEntry;
-import org.ustok.imagemarkup.ui.renderer.util.RectangleAdapter;
+import org.ustok.imagemarkup.ui.util.RectangleAdapter;
 
 /**
  * Default markup renderer implementation.

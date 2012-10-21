@@ -3,7 +3,7 @@
  * @created Oct 20th 2012
  * --------------------------------------------------------------------------
  */
-package org.ustok.imagemarkup.ui.renderer.util;
+package org.ustok.imagemarkup.ui.util;
 
 import org.eclipse.swt.graphics.Rectangle;
 
