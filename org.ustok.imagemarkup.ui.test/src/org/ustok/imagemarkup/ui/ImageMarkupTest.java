@@ -42,7 +42,7 @@ import org.ustok.imagemarkup.ui.renderer.DefaultMarkupRenderer;
 public class ImageMarkupTest {
 
 	/** debug option */
-	private static final boolean DEBUG = false;
+	private static final boolean DEBUG = true;
 
 	@Test
 	public void testConstructor() {
@@ -88,7 +88,12 @@ public class ImageMarkupTest {
 					assertFalse(defaultMarkupColor.equals(rgb));
 
 					ImageMarkup markup = new ImageMarkup();
+					MarkupRenderer renderer = markup.getRenderer();
+					DefaultMarkupRenderer dr = (DefaultMarkupRenderer) renderer;
+					dr.setUseTransparency(true);
 					markup.applyMarkup(image, 204, 4, 254, 55, null);
+					markup.applyMarkup(image, 274, 10, 424, 49,
+							"I'm a text markup");
 
 					// check markup color is on image test pixel after applying
 					// marking

@@ -5,12 +5,9 @@
  */
 package org.ustok.imagemarkup.ui.renderer;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.GC;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.graphics.Rectangle;
-import org.eclipse.swt.widgets.Display;
 import org.ustok.imagemarkup.ui.MarkupRenderer;
 import org.ustok.imagemarkup.ui.model.markupdefinition.MarkupDefinition;
 import org.ustok.imagemarkup.ui.model.markupdefinition.MarkupEntry;
@@ -24,30 +21,64 @@ import org.ustok.imagemarkup.ui.util.RectangleAdapter;
  */
 public class DefaultMarkupRenderer implements MarkupRenderer {
 
+	/** transparency enabled/disabled */
+	private boolean fUseTransparency = true;
+
 	@Override
 	public void render(MarkupDefinition pMarkup, Image pImage, GC pGc) {
-		final int imgWidth = pImage.getBounds().width;
-		final int imgHeight = pImage.getBounds().height;
 
-		Color colorRed = new Color(Display.getDefault(), 230, 20, 20);
-		Color colorBackground = new Color(Display.getDefault(), 253, 249, 234);
-		final int lineWidth = 2;
-
-		pGc.setForeground(colorRed);
-		pGc.setBackground(colorBackground);
-		pGc.setLineWidth(lineWidth);
-		pGc.setAntialias(SWT.ON);
+		boolean useTransparency = isUseTransparency();
 
 		for (MarkupEntry entry : pMarkup.getEntries()) {
 			Rectangle rect = RectangleAdapter.adaptRect(entry.getMarking());
-			pGc.drawRectangle(rect);
 
-			if (!pMarkup.isIgnoreDescriptions()) {
-
+			Box box;
+			if (entry.getText() != null) {
+				DefaultTextBox textBox = new DefaultTextBox();
+				textBox.setBounds(rect);
+				textBox.setUseTransparency(useTransparency);
+				textBox.setText(entry.getText());
+				box = textBox;
+			} else {
+				box = new DefaultBox();
+				box.setBounds(rect);
 			}
-		}
 
-		colorRed.dispose();
+			box.draw(pGc);
+		}
+	}
+
+	/**
+	 * Returns <code>true</code> if transparency is supported.
+	 * <p>
+	 * Clients can set the flag to <code>false</code> if they don't want to have
+	 * markups with transparent backgrounds.
+	 * </p>
+	 * <p>
+	 * Default value is <code>true</code>.
+	 * </p>
+	 * 
+	 * @return the useTransparency.
+	 */
+	public boolean isUseTransparency() {
+		return fUseTransparency;
+	}
+
+	/**
+	 * Sets whether transparent markup backgrounds are supported.
+	 * <p>
+	 * Clients can set the flag to <code>false</code> if they don't want to have
+	 * markups with transparent backgrounds.
+	 * </p>
+	 * <p>
+	 * Default value is <code>true</code>.
+	 * </p>
+	 * 
+	 * @param pUseTransparency
+	 *            the useTransparency to set.
+	 */
+	public void setUseTransparency(boolean pUseTransparency) {
+		fUseTransparency = pUseTransparency;
 	}
 
 }
